@@ -116,6 +116,22 @@ function jilanikpay_theme_options() { ?>
 	<div class="wrap">
 		<h2>Theme Options</h2>
 		<div id="theme-options-frame" class="metabox-holder">
+			<section id="homeage-film" class="postbox"><?php 
+				$film_options = get_option('jilanikpay_film'); ?>
+				<div title="Click to Toggle" class="handlediv"></div>
+				<h3 class="hndle"><span>Featured Film</span></h3>
+				<div class="inside">
+					<p>Select film to be displayed on front page.</p>
+					<form action="<?php bloginfo('url'); ?>" method="get">
+   						<?php wp_dropdown_pages(array(
+							'selected'=> $film_options['featured_film'],
+							'name' => 'featured_film',
+							'show_option_none' => 'None',
+							'class' => 'postform jilanikpay-dropdown',
+							'post_type' => 'film')); ?>
+   					</form>
+				</div>
+			</section>
             <section id="footer-options" class="postbox"><?php
 			    $footer_options = get_option('jilanikpay_footer'); ?>
 				<div title="Click to Toggle" class="handlediv"></div>
@@ -142,6 +158,9 @@ function jilanikpay_theme_options() { ?>
 				$(this).val('Saving...');
 				//get form values individually
 				var values = {
+					"jilanikpay_film" :{
+                        "featured_film" : $("#featured_film option:selected").val(),
+                    },
 					"jilanikpay_footer" :{
                         "copyright" : $('#copyright').val()
                     }
@@ -178,4 +197,63 @@ function jilanikpay_theme_options_ajax_action() {
     die();
 }
 add_action( 'wp_ajax_jilanikpay_theme_options_ajax_action', 'jilanikpay_theme_options_ajax_action' );
+
+/*
+ * Meta Boxes
+ */
+
+function jilanikpay_metabox()
+{                              
+    add_meta_box( 'embed-metabox', 'Film Embed Code', 'embed_metabox', 'film', 'normal', 'high' );
+}
+add_action( 'add_meta_boxes', 'jilanikpay_metabox' );
+
+function embed_metabox( $post )
+{
+    $values = get_post_custom( $post->ID );
+    $selected = isset( $values['film_embed'] ) ? $values['film_embed'][0] : '';
+
+    wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+    ?>
+    <p>
+        <label for="film_embed"><p>Paste embed code for the film in the textbox below.</p></label>
+        <textarea name="film_embed" id="film_embed" cols="62" rows="5" ><?php echo $selected; ?></textarea>
+    </p>
+    <?php   
+}
+
+function metabox_save( $post_id )
+{
+    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+    if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
+    if( !current_user_can( 'edit_post' ) ) return;
+
+    $allowed = array( 
+        'a' => array( 
+            'href' => array() 
+        )
+    );
+
+    if( isset( $_POST['film_embed'] ) )
+        update_post_meta( $post_id, 'film_embed', $_POST['film_embed'] );
+
+}
+add_action( 'save_post', 'metabox_save' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
