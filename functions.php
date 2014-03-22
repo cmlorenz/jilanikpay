@@ -94,12 +94,19 @@ function jilanikpay_init() {
 	register_taxonomy_for_object_type( 'gallery', 'attachment' );
 	register_taxonomy_for_object_type( 'gallery', 'post' );
 	register_taxonomy_for_object_type( 'gallery', 'page' );
+}
+add_action( 'init', 'jilanikpay_init' );
 
+/**
+ * Sets up the WordPress core settings.
+ */
+function jn_setup() {
 	// Navigation Menu
 	add_theme_support( 'menus' );
 	register_nav_menu( 'primary', 'Primary Navigation Menu' );
 }
-add_action( 'init', 'jilanikpay_init' );
+add_action( 'after_setup_theme', 'jn_setup' );
+
 
 /**
  * Admin Theme Options Menu
