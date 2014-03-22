@@ -34,7 +34,7 @@ function jilanikpay_init() {
 		'menu_icon' => '',
 		'menu_position' => null,
 		'has_archive' => true,
-		'taxonomies' => array( 'gallery' ),
+		'taxonomies' => '',
 		'supports' => array( 'title', 'editor', 'thumbnail' )
 	);
 	register_post_type( 'film', $args );
@@ -64,7 +64,7 @@ function jilanikpay_init() {
 		'menu_icon' => '',
 		'menu_position' => null,
 		'has_archive' => true,
-		'taxonomies' => array( 'gallery' ),
+		'taxonomies' => '',
 		'supports' => array( 'title', 'editor', 'thumbnail' )
 	);
 	register_post_type( 'photo', $args );
@@ -90,7 +90,7 @@ function jilanikpay_init() {
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'gallery' )
 	);
-	register_taxonomy( 'gallery', array( 'film', 'photo', 'attachment', 'post', 'page' ), $args );
+	register_taxonomy( 'gallery', array( 'attachment', 'post', 'page' ), $args );
 	register_taxonomy_for_object_type( 'gallery', 'attachment' );
 	register_taxonomy_for_object_type( 'gallery', 'post' );
 	register_taxonomy_for_object_type( 'gallery', 'page' );
@@ -202,14 +202,14 @@ add_action( 'wp_ajax_jilanikpay_theme_options_ajax_action', 'jilanikpay_theme_op
  * Meta Boxes
  */
 
-function jilanikpay_metabox()
-{                              
+function jilanikpay_metabox() {                              
     add_meta_box( 'embed-metabox', 'Film Embed Code', 'embed_metabox', 'film', 'normal', 'high' );
+    add_meta_box( 'gallery-metabox', 'Attached Gallery', 'gallery_metabox', 'photo', 'normal', 'high' );
+
 }
 add_action( 'add_meta_boxes', 'jilanikpay_metabox' );
 
-function embed_metabox( $post )
-{
+function embed_metabox( $post ) {
     $values = get_post_custom( $post->ID );
     $selected = isset( $values['film_embed'] ) ? $values['film_embed'][0] : '';
 
@@ -222,8 +222,30 @@ function embed_metabox( $post )
     <?php   
 }
 
-function metabox_save( $post_id )
-{
+function gallery_metabox ( $post ) { ?>
+	<p><strong>Use this option to set a featured gallery.</strong></p>
+	<?php wp_dropdown_categories( array(
+			'taxonomy'=>'gallery',
+			'selected'=> get_post_meta($post->ID, 'jilanikpay_gallery', true),
+			'name' => 'jilanikpay_gallery',
+			'show_option_none' => 'None',
+			'class' => 'postform jilanikpay-dropdown',
+			'hide_empty' => false) ); ?>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+			$(".jilanikpay-dropdown").change(function(){
+				if( $(this).val()!=-1 ) {
+					$(this).siblings().each(function(){
+						$(this).val(-1);
+					});
+				}
+			});
+		});
+	</script>
+
+<?php }
+
+function metabox_save( $post_id ) {
     if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
     if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
     if( !current_user_can( 'edit_post' ) ) return;
@@ -233,9 +255,12 @@ function metabox_save( $post_id )
             'href' => array() 
         )
     );
-
+    
     if( isset( $_POST['film_embed'] ) )
         update_post_meta( $post_id, 'film_embed', $_POST['film_embed'] );
+
+    if( isset($_POST['jilanikpay_gallery']) )
+		update_post_meta($post_id, 'jilanikpay_gallery', $_POST['jilanikpay_gallery'] );
 
 }
 add_action( 'save_post', 'metabox_save' );
