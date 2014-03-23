@@ -14,7 +14,7 @@ $myfilms = new WP_query( array(
 while( $myfilms->have_posts() ) : $myfilms->the_post(); ?>
 	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php
 	the_post_thumbnail();
-	the_content();
+	the_excerpt();
 endwhile; 
 wp_reset_postdata();
 

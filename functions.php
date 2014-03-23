@@ -35,7 +35,7 @@ function jilanikpay_init() {
 		'menu_position' => null,
 		'has_archive' => true,
 		'taxonomies' => '',
-		'supports' => array( 'title', 'editor', 'thumbnail' )
+		'supports' => array( 'title', 'editor', 'thumbnail','excerpt' )
 	);
 	register_post_type( 'film', $args );
 	
@@ -65,7 +65,7 @@ function jilanikpay_init() {
 		'menu_position' => null,
 		'has_archive' => true,
 		'taxonomies' => '',
-		'supports' => array( 'title', 'editor', 'thumbnail' )
+		'supports' => array( 'title', 'editor', 'thumbnail','excerpt' )
 	);
 	register_post_type( 'photo', $args );
 
@@ -223,14 +223,16 @@ function embed_metabox( $post ) {
 }
 
 function gallery_metabox ( $post ) { ?>
-	<p><strong>Use this option to set a featured gallery.</strong></p>
-	<?php wp_dropdown_categories( array(
-			'taxonomy'=>'gallery',
-			'selected'=> get_post_meta($post->ID, 'jilanikpay_gallery', true),
-			'name' => 'jilanikpay_gallery',
-			'show_option_none' => 'None',
-			'class' => 'postform jilanikpay-dropdown',
-			'hide_empty' => false) ); ?>
+	<label for="jilanikpay_gallery">Select a gallery to feed on to this page: </label>
+	<?php 
+	wp_dropdown_categories( array(
+		'selected'=> get_post_meta($post->ID, 'jilanikpay_gallery', true),
+		'name' => 'jilanikpay_gallery',
+		'show_option_none' => 'None',
+		'class' => 'postform jilanikpay-dropdown',
+		'taxonomy' => 'gallery',
+		'hide_empty' => false
+	) ); ?>
 	<script type="text/javascript">
 		jQuery(document).ready(function($){
 			$(".jilanikpay-dropdown").change(function(){
@@ -242,7 +244,6 @@ function gallery_metabox ( $post ) { ?>
 			});
 		});
 	</script>
-
 <?php }
 
 function metabox_save( $post_id ) {
@@ -255,12 +256,12 @@ function metabox_save( $post_id ) {
             'href' => array() 
         )
     );
-    
+
     if( isset( $_POST['film_embed'] ) )
         update_post_meta( $post_id, 'film_embed', $_POST['film_embed'] );
 
-    if( isset($_POST['jilanikpay_gallery']) )
-		update_post_meta($post_id, 'jilanikpay_gallery', $_POST['jilanikpay_gallery'] );
-
+    if( isset($_POST['jilanikpay_gallery']) ) {
+		update_post_meta( $post_id, 'jilanikpay_gallery', $_POST['jilanikpay_gallery'] );
+	}
 }
 add_action( 'save_post', 'metabox_save' );
