@@ -223,16 +223,16 @@ function embed_metabox( $post ) {
 }
 
 function gallery_metabox ( $post ) { ?>
-	<label for="jilanikpay_gallery">Select a gallery to feed on to this page: </label>
-	<?php 
-	wp_dropdown_categories( array(
-		'selected'=> get_post_meta($post->ID, 'jilanikpay_gallery', true),
-		'name' => 'jilanikpay_gallery',
-		'show_option_none' => 'None',
-		'class' => 'postform jilanikpay-dropdown',
-		'taxonomy' => 'gallery',
-		'hide_empty' => false
-	) ); ?>
+<div style="border:1px solid #CCCCCC;padding:10px;margin-bottom:10px;">
+		<p><strong>Use this option to set a featured gallery.</strong></p>
+		<?php wp_dropdown_categories( array(
+				'taxonomy'=>'gallery',
+				'selected'=> get_post_meta($post->ID, 'jilanikpay_gallery', true),
+				'name' => 'jilanikpay_gallery',
+				'show_option_none' => 'None',
+				'class' => 'postform jilanikpay-dropdown',
+				'hide_empty' => false) ); ?>
+	</div>
 	<script type="text/javascript">
 		jQuery(document).ready(function($){
 			$(".jilanikpay-dropdown").change(function(){
@@ -247,9 +247,9 @@ function gallery_metabox ( $post ) { ?>
 <?php }
 
 function metabox_save( $post_id ) {
-    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-    if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
-    if( !current_user_can( 'edit_post' ) ) return;
+    //if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+    //if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
+    //if( !current_user_can( 'edit_post' ) ) return;
 
     $allowed = array( 
         'a' => array( 

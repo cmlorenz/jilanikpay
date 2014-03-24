@@ -32,6 +32,9 @@ body {
 #site-header a {
 	display: block;
 }
+.site-header {
+	max-width: 100%;
+}
 #primary-navigation {
 	margin: 50px -12px 0;
 }
@@ -39,6 +42,19 @@ body {
    line-height: normal;
    height: auto;
    font-size: 18px;
+}
+.site-main {
+	padding: 0 10%;
+}
+/* Films 
+--------- */
+.films {
+	width: 40%;
+	float: left;
+	padding: 40px;
+}
+.films img {
+	width: 100%;
 }
 
 /* Footer

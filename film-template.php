@@ -12,9 +12,11 @@ $myfilms = new WP_query( array(
    'order' => 'ASC',
 ) );
 while( $myfilms->have_posts() ) : $myfilms->the_post(); ?>
-	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php
-	the_post_thumbnail();
-	the_excerpt();
+	<article class="films">
+		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php
+		the_post_thumbnail();
+		the_excerpt(); ?>
+	</article><?php
 endwhile; 
 wp_reset_postdata();
 
