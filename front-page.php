@@ -14,8 +14,8 @@ $film = get_option('jilanikpay_film'); ?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
-			<h2>Featured film title goes here.<?php //echo get_the_title($film); ?></h2>
-			Featured film image goes here.<?php //echo get_the_post_thumbnail($film); ?>
+			<h2><?php echo get_the_title($film['featured_film']); ?></h2>
+			<?php echo get_the_post_thumbnail($film['featured_film']); ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
