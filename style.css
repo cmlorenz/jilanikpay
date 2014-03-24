@@ -11,10 +11,11 @@
 
 @import url("../twentyfourteen/style.css");
 
-/* =Theme customization starts here
+/* =Header
 -------------------------------------------------------------- */
 body {
 	background-color: #1a1116;
+	color: #ccc;
 }
 #masthead {
 	background-color: transparent;
@@ -37,6 +38,38 @@ body {
 }
 #primary-navigation li {
    line-height: normal;
-   height: auto;
+   text-transform: small-caps;
    font-size: 18px;
+   height: auto;
+}
+#primary-navigation li a {
+	color: #ccc;
+}
+#primary-navigation li a:hover,
+#primary-navigation li a:active {
+	background-color: transparent;
+	color: #fff;
+}
+
+/* =Front Page
+-------------------------------------------------------------- */
+#primary {
+	padding: 0;
+}
+#content {
+	margin: 0 auto;
+	width: 66%;
+}
+#content h2 {
+	margin: 0 0 25px;
+	font-size: 18px;
+}
+
+/* =Footer
+-------------------------------------------------------------- */
+#colophon {
+	background-color: transparent;
+	border-top: 5px solid #000;
+	margin-top: 50px;
+	height: 55px;
 }
