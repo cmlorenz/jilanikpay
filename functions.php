@@ -11,6 +11,9 @@ function jilanikpay_setup() {
 	// Navigation Menu
 	add_theme_support( 'menus' );
 	register_nav_menu( 'primary', 'Primary Navigation Menu' );
+	// Image Sizes
+	add_image_size( 'feat-film', 780, 500, true );
+	add_image_size( 'film-thumb', 430, 260, true );
 }
 add_action( 'after_setup_theme', 'jilanikpay_setup' );
 

@@ -9,7 +9,7 @@
  */
 $footer = get_option('jilanikpay_footer');
 ?>
-			</div><!-- #main -->
+			</section><!-- #main -->
 			<footer id="colophon" class="site-footer" role="contentinfo">
 				<div class="site-info">
 					<p><?php echo esc_attr( stripcslashes($footer['copyright']) ); ?></p>
