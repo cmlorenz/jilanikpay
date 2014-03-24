@@ -101,6 +101,39 @@ body {
 	font-size: 16px;
 }
 
+/* =Photos Page
+-------------------------------------------------------------- */
+#photos-container {
+	margin: -50px auto 0;
+	width: 960px;
+}
+.photo {
+	width: 430px;
+	float: left;
+	margin: 50px 0 0;
+}
+.photo:nth-of-type(2) {
+	margin-left: 100px;
+}
+.photo h2 {
+	text-transform: uppercase;
+	margin: 0 0 25px;
+	font-size: 18px;
+}
+.photo h2 a {
+	color: #ccc;
+}
+.photo h2 a:hover {
+	color: #fff;
+}
+.photo img {
+	width: 100%
+}
+.photo p {
+	margin: 25px 0 0;
+	font-size: 16px;
+}
+
 /* =Single Film
 -------------------------------------------------------------- */
 #film-content {
@@ -114,6 +147,9 @@ body {
 #film-content .crumbs a {
 	color: #ccc;
 }
+#film-content .crumbs a:hover {
+	color: #fff;
+}
 #film-content h2 {
 	text-transform: uppercase;
 	margin: 0 0 25px;
@@ -126,6 +162,31 @@ body {
 	margin: 25px 0 0;
 }
 
+/* =Single Photo
+-------------------------------------------------------------- */
+#photo-content {
+	margin: 0 auto;
+	width: 780px;
+}
+#photo-content .crumbs {
+	font-size: 14px;
+	margin: 0 0 50px;
+}
+#photo-content .crumbs a {
+	color: #ccc;
+}
+#photo-content .crumbs a:hover {
+	color: #fff;
+}
+#photo-content h2 {
+	text-transform: uppercase;
+	margin: 0 0 25px;
+	font-size: 18px;
+}
+#photo-content p {
+	margin: 25px 0 0;
+}
+
 /* =Footer
 -------------------------------------------------------------- */
 #colophon {
@@ -133,4 +194,11 @@ body {
 	border-top: 5px solid #000;
 	margin-top: 50px;
 	height: 55px;
+}
+.site-info {
+	padding: 0 30px;
+}
+#colophon p {
+	margin: 0;
+	line-height: 55px;
 }

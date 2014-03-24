@@ -14,6 +14,7 @@ function jilanikpay_setup() {
 	// Image Sizes
 	add_image_size( 'feat-film', 780, 500, true );
 	add_image_size( 'film-thumb', 430, 260, true );
+	add_image_size( 'photo-thumb', 360, 680, true );
 }
 add_action( 'after_setup_theme', 'jilanikpay_setup' );
 
@@ -276,3 +277,29 @@ function metabox_save( $post_id ) {
 	}
 }
 add_action( 'save_post', 'metabox_save' );
+
+/**
+ * Breadcrumbs
+ *
+ */
+function jn_breadcrumbs() {
+	if ( is_singular('film') ) :
+		$args = array(
+			'meta_key' => '_wp_page_template',
+			'meta_value' => 'film-template.php',
+			'number' => '1',
+			'post_type' => 'page',
+			'post_status' => 'publish'
+		); 
+	elseif ( is_singular('photo') ) :
+		$args = array(
+			'meta_key' => '_wp_page_template',
+			'meta_value' => 'photo-template.php',
+			'number' => '1',
+			'post_type' => 'page',
+			'post_status' => 'publish'
+		); 
+	endif; 
+	$page = get_pages($args); ?>
+	<p class="crumbs"><a href="<?php echo get_permalink( $page[0]->ID ); ?>">« Back to Films</a></p><?php
+}

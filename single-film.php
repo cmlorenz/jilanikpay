@@ -9,13 +9,15 @@ get_header();
 $values = get_post_custom( $post->ID );
 $selected = isset( $values['film_embed'] ) ? $values['film_embed'][0] : ''; ?>
 
-<div id="film-content" class="site-content" role="main">
-	<p class="crumbs"><a href="">« Breadcrumbs</a></p><?php
+<div id="film-content" class="site-content" role="main"><?php 
+	jn_breadcrumbs();
 	if ( have_posts() ) :
-		while ( have_posts() ) : the_post();  ?>
-			<h2><?php the_title(); ?></h2><?php
-    		echo $selected;
-    		the_content();
+		while ( have_posts() ) : the_post(); ?>
+			<article id="film-<?php echo get_the_ID(); ?>">
+				<h2><?php the_title(); ?></h2><?php
+	    		echo $selected;
+	    		the_content(); ?>
+			</article><?php
 		endwhile;
 	endif; ?>
 </div><!-- #film-content --><?php
