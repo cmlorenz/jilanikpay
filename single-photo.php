@@ -43,10 +43,8 @@ $items = new WP_query( array(
 	    		</section><!-- #gallery -->
 			</article><?php
 		endwhile;
-	endif; ?>
-	<aside>
-		Widgets go here..
-	</aside>
+	endif;
+	get_sidebar( 'footer' ); ?>
 </div><!-- #photo-content --><?php
 
 get_footer(); ?>
