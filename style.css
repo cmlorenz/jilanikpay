@@ -86,6 +86,16 @@ body {
 #page-content p {
 	margin: 25px 0 0;
 }
+#page-content input,
+#page-content textarea {
+	background-color: transparent;
+	border: 1px solid #ccc;
+	color: #ccc;
+}
+#page-content input[type=submit]:hover {
+	background-color: #ccc;
+	color: #1a1116;
+}
 
 /* =Films Page
 -------------------------------------------------------------- */
