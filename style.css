@@ -97,6 +97,21 @@ body {
 	color: #1a1116;
 }
 
+/* =Blog Page
+-------------------------------------------------------------- */
+#blog-content {
+	margin: 0 auto;
+	width: 960px;
+}
+#blog-feed {
+	margin: -50px 0 0;
+	float: left;
+	width: 580px;
+}
+#blog-feed article {
+	margin: 50px 0 0;
+}
+
 /* =Films Page
 -------------------------------------------------------------- */
 #films-container {
@@ -216,7 +231,6 @@ body {
 #photo-content p {
 	margin: 25px 0 0;
 }
-<<<<<<< HEAD
 #gallery {
 	margin: 40px auto;
 	position: relative;
@@ -266,12 +280,11 @@ body {
 /* =Sidebar
 -------------------------------------------------------------- */
 #secondary {
-	background-color: rgba(0, 0, 0, 0);
-	border: 0 none;
-	clear: none;
+	border-left: 4px solid #000;
+	width: 300px;
 	float: right;
 	margin: 0;
-	width: 122px;
+	padding: 0 0 0 40px;
 }
 
 /* =Footer Sidebar
