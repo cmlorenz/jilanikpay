@@ -7,18 +7,18 @@
  */
 get_header();
 $gal = get_post_meta(get_the_ID(), 'jilanikpay_gallery', true);
-$args = array(
-	'post_type' => 'attachment',
-	'tax_query' => array(
-		array(
-			'taxonomy' => 'gallery',
-			'field' => 'term_id',
-			'terms' => $gal
-		)
-	)
-);
-$items = new WP_Query( $args );
-var_dump($items);
+$items = new WP_query(array( 
+		'post_type' => 'attachment',
+    	'post_status' => 'any',
+    	'tax_query' => array(
+        	array(
+         		'taxonomy' => 'gallery',
+            	'terms' => $gal,
+            	'field' => 'id',
+       		 	)
+   			)
+		)); 
+//var_dump($items);
 ?>
 
 <div id="photo-content" class="site-content" role="main"><?php 
@@ -31,9 +31,13 @@ var_dump($items);
 	    		the_content(); ?>
 	    		<section id="gallery"><?php
 	    			//echo $gal;
-	    			foreach ($items as $item) :
-	    				//echo $item;
-	    			endforeach; ?>
+	    			if ($items->have_posts()) {
+						while ($items->have_posts()) { $items->the_post(); 
+	    					$image_src = wp_get_attachment_url(get_the_ID());?>
+	    					<img src="<?php echo $image_src ?>" alt="<?php the_title(); ?>"><?php				
+
+	    				}
+	    			}?>
 	    		</section>
 			</article><?php
 		endwhile;
