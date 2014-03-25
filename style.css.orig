@@ -43,6 +43,29 @@ body {
    line-height: normal;
    text-transform: small-caps;
    font-size: 18px;
+<<<<<<< HEAD
+}
+.site-main {
+	padding: 0 10%;
+}
+/* Films 
+--------- */
+.films {
+	width: 40%;
+	float: left;
+	padding: 40px;
+}
+.films img {
+	width: 100%;
+}
+
+/* Footer
+------------ */
+
+#colophon {
+	background-color: transparent;
+	border-top: 5px solid #000;
+=======
    height: auto;
 }
 #primary-navigation li a {
@@ -75,4 +98,5 @@ body {
 	border-top: 5px solid #000;
 	margin-top: 50px;
 	height: 55px;
+>>>>>>> f8dd43573f4641d392ec7dfce23acd3e1d4fbe28
 }

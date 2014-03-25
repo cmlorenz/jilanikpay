@@ -35,7 +35,7 @@ function jilanikpay_init() {
 		'menu_position' => null,
 		'has_archive' => true,
 		'taxonomies' => '',
-		'supports' => array( 'title', 'editor', 'thumbnail','excerpt' )
+		'supports' => array( 'title', 'editor', 'thumbnail' )
 	);
 	register_post_type( 'film', $args );
 	
@@ -65,7 +65,7 @@ function jilanikpay_init() {
 		'menu_position' => null,
 		'has_archive' => true,
 		'taxonomies' => '',
-		'supports' => array( 'title', 'editor', 'thumbnail','excerpt' )
+		'supports' => array( 'title', 'editor', 'thumbnail' )
 	);
 	register_post_type( 'photo', $args );
 
@@ -202,7 +202,6 @@ add_action( 'wp_ajax_jilanikpay_theme_options_ajax_action', 'jilanikpay_theme_op
 /*
  * Meta Boxes
  */
-
 function jilanikpay_metabox() {                              
 	add_meta_box( 'embed-metabox', 'Film Embed Code', 'embed_metabox', 'film', 'normal', 'high' );
 	add_meta_box( 'gallery-metabox', 'Attached Gallery', 'gallery_metabox', 'photo', 'normal', 'high' );
@@ -243,21 +242,20 @@ function gallery_metabox ( $post ) { ?>
 <?php }
 
 function metabox_save( $post_id ) {
-    //if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-    //if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
-    //if( !current_user_can( 'edit_post' ) ) return;
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+	if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
+	if( !current_user_can( 'edit_post' ) ) return;
 
-    $allowed = array( 
-        'a' => array( 
-            'href' => array() 
-        )
-    );
+	$allowed = array( 
+		'a' => array( 
+			'href' => array() 
+		)
+	);
 
-    if( isset( $_POST['film_embed'] ) )
-        update_post_meta( $post_id, 'film_embed', $_POST['film_embed'] );
+	if( isset( $_POST['film_embed'] ) )
+		update_post_meta( $post_id, 'film_embed', $_POST['film_embed'] );
 
-    if( isset($_POST['jilanikpay_gallery']) ) {
+	if( isset($_POST['jilanikpay_gallery']) )
 		update_post_meta( $post_id, 'jilanikpay_gallery', $_POST['jilanikpay_gallery'] );
-	}
 }
 add_action( 'save_post', 'metabox_save' );

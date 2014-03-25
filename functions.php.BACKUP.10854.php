@@ -202,7 +202,6 @@ add_action( 'wp_ajax_jilanikpay_theme_options_ajax_action', 'jilanikpay_theme_op
 /*
  * Meta Boxes
  */
-
 function jilanikpay_metabox() {                              
 	add_meta_box( 'embed-metabox', 'Film Embed Code', 'embed_metabox', 'film', 'normal', 'high' );
 	add_meta_box( 'gallery-metabox', 'Attached Gallery', 'gallery_metabox', 'photo', 'normal', 'high' );
@@ -220,6 +219,18 @@ function embed_metabox( $post ) {
 }
 
 function gallery_metabox ( $post ) { ?>
+<<<<<<< HEAD
+<div style="border:1px solid #CCCCCC;padding:10px;margin-bottom:10px;">
+		<p><strong>Use this option to set a featured gallery.</strong></p>
+		<?php wp_dropdown_categories( array(
+				'taxonomy'=>'gallery',
+				'selected'=> get_post_meta($post->ID, 'jilanikpay_gallery', true),
+				'name' => 'jilanikpay_gallery',
+				'show_option_none' => 'None',
+				'class' => 'postform jilanikpay-dropdown',
+				'hide_empty' => false) ); ?>
+	</div>
+=======
 	<p><strong>Use this option to set a featured gallery.</strong></p><?php
 	wp_dropdown_categories( array(
 		'taxonomy'=>'gallery',
@@ -229,6 +240,7 @@ function gallery_metabox ( $post ) { ?>
 		'class' => 'postform jilanikpay-dropdown',
 		'hide_empty' => false
 	) ); ?>
+>>>>>>> f8dd43573f4641d392ec7dfce23acd3e1d4fbe28
 	<script type="text/javascript">
 		jQuery(document).ready(function($){
 			$(".jilanikpay-dropdown").change(function(){
@@ -243,6 +255,7 @@ function gallery_metabox ( $post ) { ?>
 <?php }
 
 function metabox_save( $post_id ) {
+<<<<<<< HEAD
     //if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
     //if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
     //if( !current_user_can( 'edit_post' ) ) return;
@@ -259,5 +272,22 @@ function metabox_save( $post_id ) {
     if( isset($_POST['jilanikpay_gallery']) ) {
 		update_post_meta( $post_id, 'jilanikpay_gallery', $_POST['jilanikpay_gallery'] );
 	}
+=======
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+	if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
+	if( !current_user_can( 'edit_post' ) ) return;
+
+	$allowed = array( 
+		'a' => array( 
+			'href' => array() 
+		)
+	);
+
+	if( isset( $_POST['film_embed'] ) )
+		update_post_meta( $post_id, 'film_embed', $_POST['film_embed'] );
+
+	if( isset($_POST['jilanikpay_gallery']) )
+		update_post_meta( $post_id, 'jilanikpay_gallery', $_POST['jilanikpay_gallery'] );
+>>>>>>> f8dd43573f4641d392ec7dfce23acd3e1d4fbe28
 }
 add_action( 'save_post', 'metabox_save' );
