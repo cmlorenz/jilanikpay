@@ -72,6 +72,21 @@ body {
 	width: 100%;
 }
 
+/* =Page
+-------------------------------------------------------------- */
+#page-content {
+	margin: 0 auto;
+	width: 780px;
+}
+#page-content h2 {
+	text-transform: uppercase;
+	margin: 0;
+	font-size: 18px;
+}
+#page-content p {
+	margin: 25px 0 0;
+}
+
 /* =Films Page
 -------------------------------------------------------------- */
 #films-container {
