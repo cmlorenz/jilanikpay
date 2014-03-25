@@ -1,12 +1,25 @@
-<?php 
+<?php
+/**
+ * Single Film Template 
+ *
+ * @package Twenty_Fourteen
+ * @subpackage Jila Nikpay
+ */
 get_header();
-	if ( have_posts() ) {
-		while ( have_posts() ) { the_post();  ?>
-			<h2><?php the_title(); ?></h2><?php
-			$values = get_post_custom( $post->ID );
-    		$selected = isset( $values['film_embed'] ) ? $values['film_embed'][0] : '';
-    		echo $selected;
-    		the_content();
-		}
-	}
-get_footer();?>
+$values = get_post_custom( $post->ID );
+$selected = isset( $values['film_embed'] ) ? $values['film_embed'][0] : ''; ?>
+
+<div id="film-content" class="site-content" role="main"><?php 
+	jn_breadcrumbs();
+	if ( have_posts() ) :
+		while ( have_posts() ) : the_post(); ?>
+			<article id="film-<?php echo get_the_ID(); ?>">
+				<h2><?php the_title(); ?></h2><?php
+	    		echo $selected;
+	    		the_content(); ?>
+			</article><?php
+		endwhile;
+	endif; ?>
+</div><!-- #film-content --><?php
+
+get_footer(); ?>
