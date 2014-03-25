@@ -216,6 +216,7 @@ body {
 #photo-content p {
 	margin: 25px 0 0;
 }
+<<<<<<< HEAD
 #gallery {
 	margin: 40px auto;
 	position: relative;
@@ -260,6 +261,17 @@ body {
 	right: -50px;
 }
 #gallery img {
+}
+
+/* =Sidebar
+-------------------------------------------------------------- */
+#secondary {
+	background-color: rgba(0, 0, 0, 0);
+	border: 0 none;
+	clear: none;
+	float: right;
+	margin: 0;
+	width: 122px;
 }
 
 /* =Footer Sidebar
