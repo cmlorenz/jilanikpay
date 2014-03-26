@@ -189,6 +189,23 @@ body {
 	text-transform: uppercase;
 }
 
+/* =404 Page
+-------------------------------------------------------------- */
+#notfound-content {
+	margin: 0 auto;
+	width: 960px;
+}
+#notfound-content .page-title {
+	margin: 0 0 25px;
+	text-align: center;
+	text-transform: uppercase;
+}
+#notfound-content input {
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid #ccc;
+	color: #ccc;
+}
+
 /* =Films Page
 -------------------------------------------------------------- */
 #films-container {
