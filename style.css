@@ -177,7 +177,8 @@ body {
 
 /* =Archive Page
 -------------------------------------------------------------- */
-#archive-feed {
+#archive-feed,
+#cat-feed {
 	margin: -50px 0 0;
 	padding: 0 40px 0 0;
 	float: left;
