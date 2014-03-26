@@ -110,10 +110,7 @@ function jilanikpay_init() {
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'gallery' )
 	);
-	register_taxonomy( 'gallery', array( 'attachment', 'post', 'page' ), $args );
-	register_taxonomy_for_object_type( 'gallery', 'attachment' );
-	register_taxonomy_for_object_type( 'gallery', 'post' );
-	register_taxonomy_for_object_type( 'gallery', 'page' );
+	register_taxonomy( 'gallery', array( 'attachment' ), $args );
 
 	// Navigation Menu
 	add_theme_support( 'menus' );

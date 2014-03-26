@@ -12,15 +12,16 @@ get_header(); ?>
 <div id="blog-content" class="site-content" role="main">
 	<div id="blog-feed"><?php
 		while ( have_posts() ) : the_post(); ?>
-			<article class="blog-post">
-				<?php the_date(); ?>
+			<article id="post-<?php the_ID(); ?>" class="blog-post">
+				<h3><?php echo get_the_date(); ?></h3>
 				<h2><?php the_title(); ?></h2>
-				By <?php the_author(); ?>
+				<h4>By <?php the_author(); ?></h4>
 				<?php the_content(); ?>
+				<h5><?php the_tags(); ?></h5>
 			</article><?php
 		endwhile; ?>
-	</div><!-- #page-feed --><?php
+	</div><!-- #blog-feed --><?php
 	get_sidebar(); ?>
-</div><!-- #page-content --><?php
+</div><!-- #blog-content --><?php
 
 get_footer();?>
