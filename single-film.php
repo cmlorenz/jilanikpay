@@ -7,7 +7,8 @@
  */
 get_header();
 $values = get_post_custom( $post->ID );
-$selected = isset( $values['film_embed'] ) ? $values['film_embed'][0] : ''; ?>
+$selected = isset( $values['film_embed'] ) ? $values['film_embed'][0] : '';
+$text = isset( $values['film_filmdesc'] ) ? $values['film_filmdesc'][0] : ''; ?>
 
 <div id="film-content" class="site-content" role="main"><?php 
 	jn_breadcrumbs();
@@ -17,6 +18,7 @@ $selected = isset( $values['film_embed'] ) ? $values['film_embed'][0] : ''; ?>
 				<h2><?php the_title(); ?></h2><?php
 	    		echo $selected;
 	    		the_content(); ?>
+	    		<p><?php echo $text ?></p>
 			</article><?php
 		endwhile;
 	endif; ?>
