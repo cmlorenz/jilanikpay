@@ -178,13 +178,16 @@ body {
 /* =Archive Page
 -------------------------------------------------------------- */
 #archive-feed,
-#cat-feed {
+#results-feed,
+#cat-feed,
+#tag-feed {
 	margin: -50px 0 0;
 	padding: 0 40px 0 0;
 	float: left;
 	width: 640px;
 }
-#blog-content .archive-title {
+#blog-content .archive-title,
+#blog-content .page-title {
 	margin: 0 0 25px;
 	text-align: center;
 	text-transform: uppercase;
@@ -406,6 +409,7 @@ body {
 .footer-photo p {
 	font-style: italic;
 }
+
 /* =Footer
 -------------------------------------------------------------- */
 #colophon {

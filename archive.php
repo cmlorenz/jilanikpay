@@ -37,7 +37,7 @@ get_header(); ?>
 		get_sidebar();
 	else : ?>
 		<h2 class="archive-title"><?php _e( 'Nothing Found', 'twentyfourteen' ); ?></h2>
-		<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentyfourteen' ); ?></p><?php
+		<p><?php _e( 'It looks like nothing was found at this location. Try searching the blog or refer to the top navigation.', 'twentyfourteen' ); ?></p><?php
 		get_search_form();
 	endif; ?>
 </div><!-- #blog-content --><?php
