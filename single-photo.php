@@ -17,6 +17,18 @@ $items = new WP_query( array(
 			'field' => 'id'
 		)
 	)
+) );
+$footer = get_post_meta(get_the_ID(), 'jilanikpay_footergallery', true);
+$footeritems = new WP_query( array( 
+	'post_type' => 'attachment',
+	'post_status' => 'any',
+	'tax_query' => array(
+		array(
+			'taxonomy' => 'gallery',
+			'terms' => $footer,
+			'field' => 'id'
+		)
+	)
 ) ); ?>
 
 <div id="photo-content" class="site-content" role="main"><?php 
@@ -41,6 +53,18 @@ $items = new WP_query( array(
 	    				<a id="next" class="arrow" href="#"></a><?php
 	    			endif; ?>
 	    		</section><!-- #gallery -->
+	    		<section id="footer-sidebar"><?php 
+	    			if ($footeritems->have_posts()) : ?>
+	    				<div class="footer-gallery-container"><?php
+	    					while ( $footeritems->have_posts() ) : $footeritems->the_post(); ?>
+	    						<div id="photo-<?php echo get_the_ID()?>" class="footer-photo"><?php
+	    							echo wp_get_attachment_image(get_the_ID(),'full'); ?>
+	    							<p><?php the_excerpt(); ?></p>
+	    						</div><?php
+	    					endwhile; ?>
+	    				</div><?php
+	    			endif; ?>
+	    		</section>
 			</article><?php
 		endwhile;
 	endif;

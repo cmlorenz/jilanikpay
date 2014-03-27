@@ -16,6 +16,8 @@ function jilanikpay_setup() {
 	add_image_size( 'film-thumb', 430, 260, true );
 	add_image_size( 'photo-thumb', 360, 680, true );
 	add_image_size( 'photo-slide', 260, 360, true );
+	add_image_size( 'photo-footer', 320, 240, true );
+
 }
 add_action( 'after_setup_theme', 'jilanikpay_setup' );
 
@@ -221,6 +223,7 @@ add_action( 'wp_ajax_jilanikpay_theme_options_ajax_action', 'jilanikpay_theme_op
 function jilanikpay_metabox() {                              
 	add_meta_box( 'embed-metabox', 'Film Embed Code', 'embed_metabox', 'film', 'normal', 'high' );
 	add_meta_box( 'gallery-metabox', 'Attached Gallery', 'gallery_metabox', 'photo', 'normal', 'high' );
+	add_meta_box( 'footer-metabox', 'Footer Gallery', 'footer_metabox', 'photo', 'normal', 'high' );
 }
 add_action( 'add_meta_boxes', 'jilanikpay_metabox' );
 
@@ -266,6 +269,32 @@ function gallery_metabox ( $post ) { ?>
 		});
 	</script>
 <?php }
+/**
+ * Footer Gallery Meta Box
+ */
+function footer_metabox ( $post ) { ?>
+	<div style="border:1px solid #CCCCCC;padding:10px;margin-bottom:10px;">
+		<p><strong>Use this option to set a footer gallery.</strong></p>
+		<?php wp_dropdown_categories( array(
+				'taxonomy'=>'gallery',
+				'selected'=> get_post_meta($post->ID, 'jilanikpay_footergallery', true),
+				'name' => 'jilanikpay_footergallery',
+				'show_option_none' => 'None',
+				'class' => 'postform jilanikpay-dropdown',
+				'hide_empty' => false) ); ?>
+	</div>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+			$(".jilanikpay-dropdown").change(function(){
+				if( $(this).val()!=-1 ) {
+					$(this).siblings().each(function(){
+						$(this).val(-1);
+					});
+				}
+			});
+		});
+	</script>
+<?php }
 
 /**
  * Save Meta Boxes
@@ -287,6 +316,10 @@ function metabox_save( $post_id ) {
 	// save gallery_metabox
 	if( isset($_POST['jilanikpay_gallery']) ) {
 		update_post_meta( $post_id, 'jilanikpay_gallery', $_POST['jilanikpay_gallery'] );
+	}
+	// save footer_metabox
+	if( isset($_POST['jilanikpay_footergallery']) ) {
+		update_post_meta( $post_id, 'jilanikpay_footergallery', $_POST['jilanikpay_footergallery'] );
 	}
 }
 add_action( 'save_post', 'metabox_save' );
