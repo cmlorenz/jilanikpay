@@ -222,6 +222,7 @@ add_action( 'wp_ajax_jilanikpay_theme_options_ajax_action', 'jilanikpay_theme_op
  */
 function jilanikpay_metabox() {                              
 	add_meta_box( 'embed-metabox', 'Film Embed Code', 'embed_metabox', 'film', 'normal', 'high' );
+	add_meta_box( 'filmdesc-metabox', 'Film Description Code', 'filmdesc_metabox', 'film', 'normal', 'high' );
 	add_meta_box( 'gallery-metabox', 'Attached Gallery', 'gallery_metabox', 'photo', 'normal', 'high' );
 	add_meta_box( 'footer-metabox', 'Footer Gallery', 'footer_metabox', 'photo', 'normal', 'high' );
 }
@@ -239,6 +240,22 @@ function embed_metabox( $post ) {
 	<p>
 	  <label for="film_embed"><p>Paste embed code for the film in the textbox below.</p></label>
 	  <textarea name="film_embed" id="film_embed" cols="62" rows="5" ><?php echo $selected; ?></textarea>
+	</p>
+	<?php   
+}
+
+/**
+ * Film Desc Meta Box
+ */
+function filmdesc_metabox( $post ) {
+	$text = get_post_custom( $post->ID );
+	$selected = isset( $values['film_filmdesc'] ) ? $values['film_filmdesc'][0] : '';
+
+	wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+	?>
+	<p>
+	  <label for="film_filmdesc"><p>Enter film information below.</p></label>
+	  <textarea name="film_filmdesc" id="film_filmdesc" cols="62" rows="2" ><?php echo $selected; ?></textarea>
 	</p>
 	<?php   
 }
@@ -312,6 +329,10 @@ function metabox_save( $post_id ) {
 	// save embed_metabox
 	if( isset( $_POST['film_embed'] ) ) {
 		update_post_meta( $post_id, 'film_embed', $_POST['film_embed'] );
+	}
+	// save filmdesc_metabox
+	if( isset( $_POST['filmdesc_embed'] ) ) {
+		update_post_meta( $post_id, 'filmdesc_embed', $_POST['filmdesc_embed'] );
 	}
 	// save gallery_metabox
 	if( isset($_POST['jilanikpay_gallery']) ) {
