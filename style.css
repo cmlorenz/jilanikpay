@@ -13,6 +13,14 @@
 
 /* =Header
 -------------------------------------------------------------- */
+::selection {
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #fff;
+}
+::-moz-selection {
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #fff;
+}
 body {
 	background-color: #1a1116;
 	color: #ccc;
@@ -51,11 +59,13 @@ body {
 }
 #primary-navigation .current_page_item a,
 #primary-navigation li:hover a,
+#primary-navigation li.focus a,
 #primary-navigation li:active a {
 	background-color: transparent;
 	font-weight: normal;
 	color: #fff;
 }
+
 
 /* =Front Page
 -------------------------------------------------------------- */
@@ -90,10 +100,10 @@ body {
 #page-content textarea {
 	background-color: rgba(255, 255, 255, 0.1);
 	border: 1px solid #ccc;
-	color: #ccc;
+	color: #fff;
 }
 #page-content input[type="submit"]:hover {
-	background-color: #ccc;
+	background-color: #fff;
 	color: #1a1116;
 }
 
@@ -207,7 +217,12 @@ body {
 #notfound-content input {
 	background-color: rgba(255, 255, 255, 0.1);
 	border: 1px solid #ccc;
-	color: #ccc;
+	color: #fff;
+}
+.search input {
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid #ccc;
+	color: #fff;
 }
 
 /* =Films Page
