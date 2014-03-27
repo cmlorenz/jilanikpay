@@ -372,6 +372,28 @@ body {
 	background-image: url('img/right-arrow.png');
 	right: -50px;
 }
+#photo-footer {
+	border-top: 4px solid #000;
+	margin: 40px 0 0;
+	padding: 40px 0 0;
+	overflow: hidden;
+}
+#photo-footer .footer-gallery-container {
+	padding: 0 15px;
+}
+.footer-photo {
+	width: 220px;
+	margin: 0 15px;
+	float: left;
+}
+.footer-photo img {
+	width: 100%;
+}
+.footer-photo h4 {
+	font-size: 14px;
+	margin: 10px 0;
+	font-style: italic;
+}
 
 /* =Sidebar
 -------------------------------------------------------------- */
@@ -387,27 +409,6 @@ body {
 }
 #secondary a:hover {
 	color: #fff;
-}
-
-/* =Footer Sidebar
--------------------------------------------------------------- */
-#footer-sidebar {
-	border-top: 4px solid #000;
-	margin: 40px 0 0;
-	padding: 40px 0 0;
-	overflow: hidden;
-}
-.footer-photo {
-	width: 33.3%;
-	margin: 0;
-	float: left;
-}
-.footer-photo img {
-	width: 96%;
-	height: auto;
-}
-.footer-photo p {
-	font-style: italic;
 }
 
 /* =Footer

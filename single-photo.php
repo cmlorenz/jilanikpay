@@ -48,27 +48,26 @@ $footeritems = new WP_query( array(
 									echo wp_get_attachment_image( get_the_ID(), 'photo-slide' ); ?>
 									<h3><?php the_title(); ?></h3>
 								</div><?php
-		    				endwhile; ?>
+		    				endwhile; wp_reset_postdata(); ?>
 	    				</div><!-- .slide-container -->
 	    				<a id="next" class="arrow" href="#"></a><?php
 	    			endif; ?>
-	    		</section><!-- #gallery -->
-	    		<section id="footer-sidebar"><?php 
-	    			if ($footeritems->have_posts()) : ?>
-	    				<div class="footer-gallery-container"><?php
+	    		</section><!-- #gallery --><?php
+	    		if ( $footeritems->have_posts() ) : ?>
+		    		<aside id="photo-footer">
+	    				<div class="footer-gallery-container content"><?php
 	    					while ( $footeritems->have_posts() ) : $footeritems->the_post(); ?>
-	    						<div id="photo-<?php echo get_the_ID()?>" class="footer-photo"><?php
-	    							echo wp_get_attachment_image(get_the_ID(),'full'); ?>
-	    							<p><?php the_excerpt(); ?></p>
+	    						<div id="photo-<?php the_ID(); ?>" class="footer-photo"><?php
+	    							echo wp_get_attachment_image( get_the_ID(), 'full' ); ?>
+	    							<h4><?php the_title(); ?></h4>
 	    						</div><?php
-	    					endwhile; ?>
-	    				</div><?php
-	    			endif; ?>
-	    		</section>
+	    					endwhile; wp_reset_postdata(); ?>
+	    				</div><!-- .footer-gallery-container -->
+	    			</aside><!-- #photo-footer --><?php
+	    		endif; ?>
 			</article><?php
-		endwhile;
-	endif;
-	get_sidebar( 'footer' ); ?>
+		endwhile; wp_reset_postdata();
+	endif; ?>
 </div><!-- #photo-content --><?php
 
 get_footer(); ?>

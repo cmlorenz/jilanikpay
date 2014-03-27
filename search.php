@@ -21,7 +21,7 @@ get_header(); ?>
 						<h5><?php the_tags(); ?></h5>
 					</article><?php
 				endif;
-			endwhile; ?>
+			endwhile; wp_reset_postdata(); ?>
 		</div><!-- #results-feed --><?php
 		get_sidebar();
 	else : ?>

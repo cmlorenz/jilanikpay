@@ -20,7 +20,7 @@ $text = isset( $values['film_filmdesc'] ) ? $values['film_filmdesc'][0] : ''; ?>
 	    		the_content(); ?>
 	    		<p><?php echo $text ?></p>
 			</article><?php
-		endwhile;
+		endwhile; wp_reset_postdata();
 	endif; ?>
 </div><!-- #film-content --><?php
 

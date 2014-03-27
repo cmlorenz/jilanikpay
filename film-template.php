@@ -12,7 +12,7 @@ $myfilms = new WP_query( array(
    'orderby' => 'menu_order',
    'order' => 'ASC',
 ) ); 
-$count = $myfilms->post_count;?>
+$count = $myfilms->post_count; ?>
 
 <div id="films-container" class="site-content" role="main">
 	<div class="film-row"><?php $I = 0;
@@ -28,7 +28,6 @@ $count = $myfilms->post_count;?>
 				</div><div class="film-row"><?php
 			}
 		endwhile; wp_reset_postdata(); ?>
-
 </div><!-- #films-container --><?php
 
 get_footer();

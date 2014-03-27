@@ -13,7 +13,7 @@ get_header(); ?>
 	while ( have_posts() ) : the_post(); ?>
 		<h2><?php the_title(); ?></h2><?php
 		the_content();
-	endwhile; ?>
+	endwhile; wp_reset_postdata(); ?>
 </article><!-- #page-content --><?php
 
 get_footer();

@@ -17,7 +17,7 @@ get_header(); ?>
 			<?php the_content(); ?>
 			<h5><?php the_tags(); ?></h5><?php
 			twentyfourteen_post_nav();
-		endwhile; ?>
+		endwhile; wp_reset_postdata(); ?>
 	</article><!-- #post --><?php
 	get_sidebar(); ?>
 </div><!-- #blog-content --><?php
