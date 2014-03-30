@@ -15,7 +15,7 @@ function jilanikpay_setup() {
 	add_image_size( 'feat-film', 780, 500, true );
 	add_image_size( 'film-thumb', 430, 260, true );
 	add_image_size( 'photo-thumb', 360, 680, true );
-	add_image_size( 'photo-slide', 260, 360, true );
+	add_image_size( 'photo-slide', 460, 560, true );
 	add_image_size( 'photo-footer', 320, 240, true );
 
 }
@@ -222,7 +222,6 @@ add_action( 'wp_ajax_jilanikpay_theme_options_ajax_action', 'jilanikpay_theme_op
  */
 function jilanikpay_metabox() {                              
 	add_meta_box( 'embed-metabox', 'Film Embed Code', 'embed_metabox', 'film', 'normal', 'high' );
-	add_meta_box( 'filmdesc-metabox', 'Film Description Code', 'filmdesc_metabox', 'film', 'normal', 'high' );
 	add_meta_box( 'gallery-metabox', 'Attached Gallery', 'gallery_metabox', 'photo', 'normal', 'high' );
 	add_meta_box( 'footer-metabox', 'Footer Gallery', 'footer_metabox', 'photo', 'normal', 'high' );
 }
@@ -234,30 +233,23 @@ add_action( 'add_meta_boxes', 'jilanikpay_metabox' );
 function embed_metabox( $post ) {
 	$values = get_post_custom( $post->ID );
 	$selected = isset( $values['film_embed'] ) ? $values['film_embed'][0] : '';
-
-	wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
-	?>
+	$filmAttach = isset( $values['film_attachment'] ) ? esc_attr($values['film_attachment'][0]) : '';
+	wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );?>
 	<p>
-	  <label for="film_embed"><p>Paste embed code for the film in the textbox below.</p></label>
+	  <label for="film_embed"><p>Paste embed code for the film in the textbox below, or select a previously uploaded film.</p></label>
 	  <textarea name="film_embed" id="film_embed" cols="62" rows="5" ><?php echo $selected; ?></textarea>
 	</p>
 	<?php   
-}
-
-/**
- * Film Desc Meta Box
- */
-function filmdesc_metabox( $post ) {
-	$text = get_post_custom( $post->ID );
-	$selected = isset( $values['film_filmdesc'] ) ? $values['film_filmdesc'][0] : '';
-
-	wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
-	?>
-	<p>
-	  <label for="film_filmdesc"><p>Enter film information below.</p></label>
-	  <textarea name="film_filmdesc" id="film_filmdesc" cols="62" rows="2" ><?php echo $selected; ?></textarea>
-	</p>
-	<?php   
+	$args = array( 'post_type' => 'attachment', 'posts_per_page' => -1, 'post_status' => 'any', 'post_parent' => null, 'post_mime_type'=> 'video/quicktime'); 
+	$attachments = get_posts( $args ); ?>
+	<form action="<? bloginfo('url'); ?>" method="get">
+		<select name="film_attachment" id="film-attachment">
+				<option value="-1">Select</option><?php
+			foreach( $attachments as $attachment ) : setup_postdata($attachment); ?>
+			       <option value="<? echo $attachment->ID; ?>" <?php selected( $filmAttach, $attachment->ID ); ?>><?php echo $attachment->post_title; ?></option>
+			<?php endforeach; ?>
+		</select>
+	</form><?php
 }
 
 /**
@@ -330,9 +322,8 @@ function metabox_save( $post_id ) {
 	if( isset( $_POST['film_embed'] ) ) {
 		update_post_meta( $post_id, 'film_embed', $_POST['film_embed'] );
 	}
-	// save filmdesc_metabox
-	if( isset( $_POST['filmdesc_embed'] ) ) {
-		update_post_meta( $post_id, 'filmdesc_embed', $_POST['filmdesc_embed'] );
+	if( isset( $_POST['film_attachment'] ) ) {
+		update_post_meta( $post_id, 'film_attachment', $_POST['film_attachment'] );
 	}
 	// save gallery_metabox
 	if( isset($_POST['jilanikpay_gallery']) ) {
@@ -351,6 +342,7 @@ add_action( 'save_post', 'metabox_save' );
  */
 function jn_breadcrumbs() {
 	if ( is_singular('film') ) :
+		$name = 'Film';
 		$args = array(
 			'meta_key' => '_wp_page_template',
 			'meta_value' => 'film-template.php',
@@ -359,6 +351,7 @@ function jn_breadcrumbs() {
 			'post_status' => 'publish'
 		); 
 	elseif ( is_singular('photo') ) :
+		$name = 'Photo';
 		$args = array(
 			'meta_key' => '_wp_page_template',
 			'meta_value' => 'photo-template.php',
@@ -368,5 +361,5 @@ function jn_breadcrumbs() {
 		); 
 	endif; 
 	$page = get_pages($args); ?>
-	<p class="crumbs"><a href="<?php echo get_permalink( $page[0]->ID ); ?>">« Back to Films</a></p><?php
+	<p class="crumbs"><a href="<?php echo get_permalink( $page[0]->ID ); ?>">« Back to <?php echo $name; ?></a></p><?php
 }
