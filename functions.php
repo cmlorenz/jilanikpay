@@ -25,6 +25,7 @@ add_action( 'after_setup_theme', 'jilanikpay_setup' );
  * Enqueue scripts
  */
 function jn_scripts() {
+	wp_enqueue_style( 'playfair-font', 'http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,400italic,700|Gilda+Display' );
 	wp_enqueue_script( 'jn-gal-js', get_stylesheet_directory_uri() . '/gallery.js', array('jquery'), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'jn_scripts' );
