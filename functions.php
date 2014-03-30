@@ -15,7 +15,7 @@ function jilanikpay_setup() {
 	add_image_size( 'feat-film', 780, 500, true );
 	add_image_size( 'film-thumb', 430, 260, true );
 	add_image_size( 'photo-thumb', 360, 680, true );
-	add_image_size( 'photo-slide', 460, 560, true );
+	add_image_size( 'photo-slide', 360, 480, true );
 	add_image_size( 'photo-footer', 320, 240, true );
 
 }
@@ -343,7 +343,7 @@ add_action( 'save_post', 'metabox_save' );
  */
 function jn_breadcrumbs() {
 	if ( is_singular('film') ) :
-		$name = 'Film';
+		$name = 'Films';
 		$args = array(
 			'meta_key' => '_wp_page_template',
 			'meta_value' => 'film-template.php',
@@ -352,7 +352,7 @@ function jn_breadcrumbs() {
 			'post_status' => 'publish'
 		); 
 	elseif ( is_singular('photo') ) :
-		$name = 'Photo';
+		$name = 'Photos';
 		$args = array(
 			'meta_key' => '_wp_page_template',
 			'meta_value' => 'photo-template.php',

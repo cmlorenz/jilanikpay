@@ -17,8 +17,10 @@ $myphotos = new WP_query( array(
 
 	while( $myphotos->have_posts() ) : $myphotos->the_post(); ?>
 		<article class="photo">
-			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php
-			the_post_thumbnail('photo-thumb');
+			<a class="img-link" href="<?php the_permalink(); ?>"><?php
+				the_post_thumbnail('photo-thumb'); ?>
+				<h2><?php the_title(); ?></h2>
+			</a><?php
 			the_excerpt(); ?>
 		</article><?php
 	endwhile; wp_reset_postdata(); ?>
