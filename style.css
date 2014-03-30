@@ -284,7 +284,7 @@ body .img-link:hover img {
 	font-family: 'Playfair Display SC', serif;
 	font-weight: 400;
 	margin: 15px 0 0;
-	font-size: 18px;
+	font-size: 16px;
 }
 .film h2 {
 	color: #ccc;
@@ -298,7 +298,7 @@ body .img-link:hover img {
 .film p {
 	margin: 10px 0 0;
 	font-style: italic;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 /* =Photos Page
@@ -308,18 +308,15 @@ body .img-link:hover img {
 	width: 960px;
 }
 .photo {
-	width: 430px;
+	width: 400px;
 	float: left;
-	margin: 50px 0 0;
-}
-.photo:nth-of-type(2) {
-	margin-left: 100px;
+	margin: 50px 40px 0;
 }
 .photo h2 {
 	font-family: 'Playfair Display SC', serif;
 	font-weight: 400;
 	margin: 15px 0 0;
-	font-size: 18px;
+	font-size: 16px;
 }
 .photo h2 {
 	color: #ccc;
@@ -333,7 +330,7 @@ body .img-link:hover img {
 .photo p {
 	margin: 10px 0 0;
 	font-style: italic;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 /* =Single Film
@@ -344,7 +341,7 @@ body .img-link:hover img {
 }
 #film-content .crumbs {
 	font-size: 14px;
-	margin: 50px 0;
+	margin: 50px 0 0;
 }
 #film-content .crumbs a {
 	background-color: rgba(255, 255, 255, 0.1);
@@ -357,8 +354,12 @@ body .img-link:hover img {
 #film-content h2 {
 	font-family: 'Playfair Display SC', serif;
 	font-weight: 400;
-	margin: 0 0 25px;
+	margin: 0 0 15px;
 	font-size: 18px;
+}
+#film-content h2 + p {
+	margin: 0 0 25px;
+	font-style: italic;
 }
 #film-content iframe {
 	margin: 0;
@@ -416,6 +417,7 @@ body .img-link:hover img {
 }
 #gallery h3 {
 	font-family: 'Playfair Display SC', serif;
+	font-style: italic;
 	font-weight: 400;
 	font-size: 14px;
 	margin: 10px 0;
