@@ -27,7 +27,7 @@ $videoID = isset( $values['film_attachment'] ) ? esc_attr($values['film_attachme
 						<param name="autoplay" value="false">
 						<param name="loop" value="false">
 						<param name="controller" value="true">
-						<embed src="<?php echo $videoPath?>" qtsrc="<?php echo $videoPath?>" width="<?php echo $videoData['width']?>" height="<?php $videoData['height']?>" autoplay="false" loop="false" controller="true" pluginspage="http://www.apple.com/quicktime/"></embed>
+						<embed src="<?php echo $videoPath?>" qtsrc="<?php echo $videoPath?>" width="<?php echo $videoData['width']?>" height="<?php echo $videoData['height']?>" autoplay="false" loop="false" controller="true" pluginspage="http://www.apple.com/quicktime/"></embed>
 					</object><?php
 	    		}
 	    		the_content(); ?>
