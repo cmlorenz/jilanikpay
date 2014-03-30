@@ -18,8 +18,10 @@ $count = $myfilms->post_count; ?>
 	<div class="film-row"><?php $I = 0;
 		while( $myfilms->have_posts() ) : $myfilms->the_post(); $I++; ?>
 			<article class="film">
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php
-				the_post_thumbnail('film-thumb');
+				<a class="img-link" href="<?php the_permalink(); ?>"><?php
+					the_post_thumbnail('film-thumb'); ?>
+					<h2><?php the_title(); ?></h2>
+				</a><?php
 				the_excerpt(); ?>
 			</article><?php
 			if ($I==$count){?>
