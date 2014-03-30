@@ -25,6 +25,9 @@ body {
 	background-color: #1a1116;
 	color: #ccc;
 }
+body p {
+	font-family: 'Gilda Display', serif;
+}
 #masthead {
 	background-color: transparent;
 	border-bottom: 5px solid #000;
@@ -49,12 +52,13 @@ body {
 	margin: 50px -12px 0;
 }
 #primary-navigation li {
+	font-family: 'Playfair Display SC', serif;
    line-height: normal;
-   text-transform: small-caps;
    font-size: 18px;
    height: auto;
 }
 #primary-navigation li a {
+	text-transform: none;
 	color: #ccc;
 }
 #primary-navigation .current_page_item a,
@@ -74,7 +78,8 @@ body {
 	width: 780px;
 }
 #frontpage-content h2 {
-	text-transform: uppercase;
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 0 0 25px;
 	font-size: 18px;
 }
@@ -89,7 +94,8 @@ body {
 	width: 780px;
 }
 #page-content h2 {
-	text-transform: uppercase;
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 0;
 	font-size: 18px;
 }
@@ -102,8 +108,13 @@ body {
 	border: 1px solid #ccc;
 	color: #fff;
 }
+#page-content input[type="submit"] {
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
+}
 #page-content input[type="submit"]:hover {
 	background-color: #fff;
+	font-weight: 700;
 	color: #1a1116;
 }
 
@@ -129,19 +140,26 @@ body {
 	padding: 0;
 }
 #blog-content article h2 {
-	text-transform: uppercase;
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	font-size: 18px;
 	margin: 0;
 }
 #blog-content article h3 {
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 0 0 40px;
 	font-size: 14px;
 }
 #blog-content article h4 {
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 10px 0 0;
 	font-size: 14px;
 }
 #blog-content article h5 {
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 25px 0 0;
 	font-size: 14px;
 }
@@ -198,9 +216,10 @@ body {
 }
 #blog-content .archive-title,
 #blog-content .page-title {
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 0 0 25px;
 	text-align: center;
-	text-transform: uppercase;
 }
 
 /* =404 Page
@@ -210,9 +229,10 @@ body {
 	width: 960px;
 }
 #notfound-content .page-title {
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 0 0 25px;
 	text-align: center;
-	text-transform: uppercase;
 }
 #notfound-content input {
 	background-color: rgba(255, 255, 255, 0.1);
@@ -241,7 +261,8 @@ body {
 	margin: 50px 25px 0;
 }
 .film h2 {
-	text-transform: uppercase;
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 0 0 25px;
 	font-size: 18px;
 }
@@ -274,7 +295,8 @@ body {
 	margin-left: 100px;
 }
 .photo h2 {
-	text-transform: uppercase;
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 0 0 25px;
 	font-size: 18px;
 }
@@ -309,7 +331,8 @@ body {
 	color: #fff;
 }
 #film-content h2 {
-	text-transform: uppercase;
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 0 0 25px;
 	font-size: 18px;
 }
@@ -337,7 +360,8 @@ body {
 	color: #fff;
 }
 #photo-content h2 {
-	text-transform: uppercase;
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	margin: 0 0 25px;
 	font-size: 18px;
 }
@@ -362,6 +386,8 @@ body {
 	display: block;
 }
 #gallery h3 {
+	font-family: 'Playfair Display SC', serif;
+	font-weight: 400;
 	font-size: 14px;
 	margin: 10px 0;
 }
@@ -405,6 +431,8 @@ body {
 	width: 100%;
 }
 .footer-photo h4 {
+	font-family: 'Gilda Display', serif;
+	font-weight: normal;
 	font-size: 14px;
 	margin: 10px 0;
 	font-style: italic;
@@ -413,11 +441,17 @@ body {
 /* =Sidebar
 -------------------------------------------------------------- */
 #secondary {
+	font-family: 'Gilda Display', serif;
 	border-left: 4px solid #000;
 	width: 236px;
 	float: right;
 	margin: 0;
 	padding: 0 0 0 40px;
+}
+#secondary .widget-title {
+	font-family: 'Playfair Display SC', serif;
+	text-transform: none;
+	font-weight: 400;
 }
 #secondary a {
 	color: #ccc;
