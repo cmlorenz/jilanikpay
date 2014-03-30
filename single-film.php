@@ -8,8 +8,7 @@
 get_header();
 $values = get_post_custom( $post->ID );
 $selected = isset( $values['film_embed'] ) ? $values['film_embed'][0] : '';
-$filmAttach = isset( $values['film_attachment'] ) ? esc_attr($values['film_attachment'][0]) : ''; 
-var_dump($filmAttach);?>
+$videoID = isset( $values['film_attachment'] ) ? esc_attr($values['film_attachment'][0]) : ''; ?>
 
 <div id="film-content" class="site-content" role="main"><?php 
 	if ( have_posts() ) :
@@ -19,8 +18,17 @@ var_dump($filmAttach);?>
 				the_excerpt(); 
 				if ($selected!='') {
 	    			echo $selected;
-	    		} else { ?>
-	    			
+	    		} else{ 
+	    			$videoData = wp_get_attachment_metadata($videoID);
+	    			$videoPath = wp_get_attachment_url($videoID); ?>
+	    			<object classid="<?php echo $videoID?>" width="<?php echo $videoData['width']?>" height="<?php echo $videoData['height']?>" codebase="http://www.apple.com/qtactivex/qtplugin.cab">
+						<param name="src" value="<?php echo $videoPath?>">
+						<param name="qtsrc" value="<?php echo $videoPath?>">
+						<param name="autoplay" value="false">
+						<param name="loop" value="false">
+						<param name="controller" value="true">
+						<embed src="<?php echo $videoPath?>" qtsrc="<?php echo $videoPath?>" width="<?php echo $videoData['width']?>" height="<?php $videoData['height']?>" autoplay="false" loop="false" controller="true" pluginspage="http://www.apple.com/quicktime/"></embed>
+					</object><?php
 	    		}
 	    		the_content(); ?>
 			</article><?php
