@@ -32,13 +32,11 @@ $footeritems = new WP_query( array(
 ) ); ?>
 
 <div id="photo-content" class="site-content" role="main"><?php 
-	jn_breadcrumbs();
+	
 	if ( have_posts() ) :
 		while ( have_posts() ) : the_post(); ?>
 			<article id="photo-<?php echo get_the_ID(); ?>">
-				<h2><?php the_title(); ?></h2><?php
-	    		the_content(); ?>
-	    		<section id="gallery"><?php
+				<section id="gallery"><?php
 	    			if ( $items->have_posts() ) : ?>
 	    				<a id="prev" class="arrow" href="#"></a>
 	    				<div class="slide-container"><?php
@@ -52,7 +50,10 @@ $footeritems = new WP_query( array(
 	    				</div><!-- .slide-container -->
 	    				<a id="next" class="arrow" href="#"></a><?php
 	    			endif; ?>
-	    		</section><!-- #gallery --><?php
+	    		</section><!-- #gallery -->
+				<h2><?php the_title(); ?></h2><?php
+	    		the_content();
+				jn_breadcrumbs();
 	    		if ( $footeritems->have_posts() ) : ?>
 		    		<aside id="photo-footer">
 	    				<div class="footer-gallery-container content"><?php
