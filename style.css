@@ -50,7 +50,7 @@ body .img-link:hover img {
 }
 #masthead {
 	background-color: transparent;
-	border-bottom: 5px solid #000;
+	border-bottom: 5px solid rgba(255, 255, 255, 0.1);
 	margin-bottom: 50px;
 	height: 100px;
 }
@@ -90,7 +90,6 @@ body .img-link:hover img {
 	color: #fff;
 }
 
-
 /* =Front Page
 -------------------------------------------------------------- */
 #frontpage-content {
@@ -102,6 +101,7 @@ body .img-link:hover img {
 	font-weight: 400;
 	margin: 10px 0 0;
 	font-size: 16px;
+	color: #ccc;
 }
 #frontpage-content img {
 	width: 100%;
@@ -297,7 +297,6 @@ body .img-link:hover img {
 }
 .film p {
 	margin: 10px 0 0;
-	font-style: italic;
 	font-size: 14px;
 }
 
@@ -495,7 +494,7 @@ body .img-link:hover img {
 -------------------------------------------------------------- */
 #colophon {
 	background-color: transparent;
-	border-top: 5px solid #000;
+	border-top: 5px solid rgba(255, 255, 255, 0.1);
 	margin-top: 50px;
 	height: 55px;
 }
