@@ -26,7 +26,7 @@ body {
 	color: #ccc;
 }
 body p {
-	font-family: 'Gilda Display', serif;
+	font-family: 'Marcellus', serif;
 }
 body .img-link {
 	display: block;
@@ -72,10 +72,10 @@ body .img-link:hover img {
 	margin: 60px -12px 0;
 }
 #primary-navigation li {
-	font-family: 'Playfair Display SC', serif;
-   	line-height: normal;
-   	font-size: 16px;
-   	height: auto;
+	font-family: 'Marcellus SC', sans-serif;
+	line-height: normal;
+	font-size: 16px;
+	height: auto;
 }
 #primary-navigation li a {
 	text-transform: none;
@@ -98,7 +98,7 @@ body .img-link:hover img {
 	width: 780px;
 }
 #frontpage-content h2 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 10px 0 0;
 	font-size: 16px;
@@ -115,7 +115,7 @@ body .img-link:hover img {
 	width: 680px;
 }
 #page-content h2 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 0;
 	font-size: 18px;
@@ -131,7 +131,7 @@ body .img-link:hover img {
 	width: 353px;
 }
 #page-content input[type="submit"] {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 }
 #page-content input[type="submit"]:hover {
@@ -153,7 +153,7 @@ body .img-link:hover img {
 	width: 640px;
 }
 #blog-content article {
-	border-bottom: 2px solid #000;
+	border-bottom: 4px solid rgba(255, 255, 255, 0.1);
 	margin: 50px 0 0;
 	padding: 0 0 50px;
 }
@@ -162,25 +162,25 @@ body .img-link:hover img {
 	padding: 0;
 }
 #blog-content article h2 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	font-size: 18px;
 	margin: 0;
 }
 #blog-content article h3 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 0 0 40px;
 	font-size: 14px;
 }
 #blog-content article h4 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 10px 0 0;
 	font-size: 14px;
 }
 #blog-content article h5 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 25px 0 0;
 	font-size: 14px;
@@ -238,7 +238,7 @@ body .img-link:hover img {
 }
 #blog-content .archive-title,
 #blog-content .page-title {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 0 0 25px;
 	text-align: center;
@@ -251,7 +251,7 @@ body .img-link:hover img {
 	width: 960px;
 }
 #notfound-content .page-title {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 0 0 25px;
 	text-align: center;
@@ -283,7 +283,7 @@ body .img-link:hover img {
 	margin: 50px 25px 0;
 }
 .film h2 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 15px 0 0;
 	font-size: 16px;
@@ -314,7 +314,7 @@ body .img-link:hover img {
 	margin: 50px 40px 0;
 }
 .photo h2 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 15px 0 0;
 	font-size: 16px;
@@ -353,7 +353,7 @@ body .img-link:hover img {
 	color: #fff;
 }
 #film-content h2 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 0 0 15px;
 	font-size: 18px;
@@ -388,7 +388,7 @@ body .img-link:hover img {
 	color: #fff;
 }
 #photo-content h2 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
 	margin: 25px 0;
 	font-size: 18px;
@@ -417,7 +417,7 @@ body .img-link:hover img {
 	display: block;
 }
 #gallery h3 {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus', serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
@@ -446,7 +446,7 @@ body .img-link:hover img {
 	right: -50px;
 }
 #photo-footer {
-	border-top: 4px solid #000;
+	border-top: 4px solid rgba(255, 255, 255, 0.1);
 	margin: 40px 0 0;
 	padding: 40px 0 0;
 	overflow: hidden;
@@ -463,7 +463,7 @@ body .img-link:hover img {
 	width: 100%;
 }
 .footer-photo h4 {
-	font-family: 'Gilda Display', serif;
+	font-family: 'Marcellus', serif;
 	font-weight: normal;
 	font-size: 14px;
 	margin: 10px 0;
@@ -473,15 +473,15 @@ body .img-link:hover img {
 /* =Sidebar
 -------------------------------------------------------------- */
 #secondary {
-	font-family: 'Gilda Display', serif;
-	border-left: 4px solid #000;
+	font-family: 'Marcellus', serif;
+	border-left: 4px solid rgba(255, 255, 255, 0.1);
 	width: 236px;
 	float: right;
 	margin: 0;
 	padding: 0 0 0 40px;
 }
 #secondary .widget-title {
-	font-family: 'Playfair Display SC', serif;
+	font-family: 'Marcellus SC', sans-serif;
 	text-transform: none;
 	font-weight: 400;
 }
