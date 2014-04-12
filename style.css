@@ -69,7 +69,7 @@ body .img-link:hover img {
 	max-width: 100%;
 }
 #primary-navigation {
-	margin: 46px -12px 0;
+	margin: 48px -12px 0;
 }
 #primary-navigation li {
 	font-family: 'Marcellus SC', sans-serif;
@@ -491,6 +491,9 @@ body .img-link:hover img {
 	margin: 10px 0;
 	font-style: normal;
 	color: #e0c7bc;
+}
+.footer-photo object + h4 {
+	margin-top: 3px;
 }
 
 /* =Sidebar
