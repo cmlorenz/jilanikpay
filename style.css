@@ -129,11 +129,12 @@ body .img-link:hover img {
 	background-color: rgba(255, 255, 255, 0.1);
 	border: 1px solid #ccc;
 	color: #fff;
-	width: 353px;
+	width: 380px;
 }
 #page-content input[type="submit"] {
 	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;
+	width: auto;
 }
 #page-content input[type="submit"]:hover {
 	background-color: #fff;
