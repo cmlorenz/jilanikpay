@@ -56,7 +56,7 @@ function jilanikpay_init() {
 		'menu_icon'         => null,
 		'capability_type'   => 'post',
 		'hierarchical'      => true,
-		'supports'          => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		'supports'          => array( 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes' ),
 		'has_archive'       => true,
 		'rewrite'           => array( 'slug' => 'film' ),
 		'query_var'         => true
@@ -85,7 +85,7 @@ function jilanikpay_init() {
 		'menu_icon'         => null,
 		'capability_type'   => 'post',
 		'hierarchical'      => true,
-		'supports'          => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		'supports'          => array( 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes' ),
 		'has_archive'       => true,
 		'rewrite'           => array( 'slug' => 'photo' ),
 		'query_var'         => true
