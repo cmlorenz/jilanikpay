@@ -61,17 +61,17 @@ $footeritems = new WP_query( array(
 	    						<div id="photo-<?php the_ID(); ?>" class="footer-photo"><?php
 	    							if (get_post_mime_type(get_the_ID())=='video/quicktime') {
 	    								$videoPath = wp_get_attachment_url(get_the_ID());?>
-										<object classid="<?php echo get_the_ID()?>" width="200" height="150" codebase="http://www.apple.com/qtactivex/qtplugin.cab">
+										<object classid="<?php echo get_the_ID()?>" width="220" height="165" codebase="http://www.apple.com/qtactivex/qtplugin.cab">
 											<param name="src" value="<?php echo $videoPath?>">
 											<param name="qtsrc" value="<?php echo $videoPath?>">
 											<param name="autoplay" value="false">
 											<param name="loop" value="false">
 											<param name="controller" value="true">
-											<embed src="<?php echo $videoPath?>" qtsrc="<?php echo $videoPath?>" width="200" height="150" autoplay="false" loop="false" controller="true" pluginspage="http://www.apple.com/quicktime/"></embed>
+											<embed src="<?php echo $videoPath; ?>" qtsrc="<?php echo $videoPath; ?>" width="220" height="165" autoplay="false" loop="false" controller="true" pluginspage="http://www.apple.com/quicktime/"></embed>
 										</object><?php
 	    							} else {
-	    								echo wp_get_attachment_image( get_the_ID(), 'full' ); 
-	    							}?>
+	    								echo wp_get_attachment_image( get_the_ID(), 'photo-footer' ); 
+	    							} ?>
 	    							<h4><?php the_title(); ?></h4>
 	    						</div><?php
 	    					endwhile; wp_reset_postdata(); ?>

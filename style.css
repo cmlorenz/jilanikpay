@@ -69,7 +69,7 @@ body .img-link:hover img {
 	max-width: 100%;
 }
 #primary-navigation {
-	margin: 56px -12px 0;
+	margin: 46px -12px 0;
 }
 #primary-navigation li {
 	font-family: 'Marcellus SC', sans-serif;
@@ -469,6 +469,12 @@ body .img-link:hover img {
 }
 #photo-footer .footer-gallery-container {
 	padding: 0 15px;
+}
+#photo-footer iframe,
+#photo-footer embed,
+#photo-footer object,
+#photo-footer video {
+	margin: 0;
 }
 .footer-photo {
 	width: 220px;
