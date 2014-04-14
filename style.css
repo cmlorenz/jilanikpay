@@ -21,6 +21,9 @@
 	background-color: rgba(255, 255, 255, 0.1);
 	color: #fff;
 }
+a {
+ color: #fff;
+}
 body {
 	background-color: #1a1116;
 	color: #ccc;
@@ -72,7 +75,7 @@ body .img-link:hover img {
 	margin: 48px -12px 0;
 }
 #primary-navigation li {
-	font-family: 'Marcellus SC', sans-serif;
+	font-family: 'Cinzel', serif;
 	line-height: normal;
 	font-size: 16px;
 	height: auto;
@@ -410,6 +413,7 @@ body .img-link:hover img {
 }
 #photo-content p {
 	margin: 0 0 20px;
+	width: 90%;
 }
 #gallery {
 	margin: 0 auto 65px;
@@ -475,6 +479,7 @@ body .img-link:hover img {
 #photo-footer object,
 #photo-footer video {
 	margin: 0;
+	height: 165px;
 }
 .footer-photo {
 	width: 220px;
@@ -510,6 +515,7 @@ body .img-link:hover img {
 	font-family: 'Marcellus SC', sans-serif;
 	text-transform: none;
 	font-weight: 400;
+	color: #E0C7BC;
 }
 #secondary a {
 	color: #ccc;
