@@ -516,6 +516,7 @@ body .img-link:hover img {
 	text-transform: none;
 	font-weight: 400;
 	color: #E0C7BC;
+	margin-bottom: 15px;
 }
 #secondary a {
 	color: #ccc;

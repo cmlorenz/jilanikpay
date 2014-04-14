@@ -14,7 +14,7 @@ function jilanikpay_setup() {
 	// Image Sizes
 	add_image_size( 'feat-film', 780, 500, true );
 	add_image_size( 'film-thumb', 430, 260, true );
-	add_image_size( 'photo-thumb', 360, 680, true );
+	add_image_size( 'photo-thumb', 400, 530, true );
 	add_image_size( 'photo-slide', 360, 480, true );
 	add_image_size( 'photo-footer', 220, 165, true );
 
