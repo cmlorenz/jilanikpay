@@ -22,7 +22,11 @@
 	color: #fff;
 }
 a {
- color: #fff;
+	color: #E0C7BC;
+}
+a:hover {
+	color: #fff;
+	text-decoration: underline;
 }
 body {
 	background-color: #1a1116;
