@@ -16,7 +16,7 @@ function jilanikpay_setup() {
 	add_image_size( 'film-thumb', 430, 260, true );
 	add_image_size( 'photo-thumb', 360, 680, true );
 	add_image_size( 'photo-slide', 360, 480, true );
-	add_image_size( 'photo-footer', 220, 150, true );
+	add_image_size( 'photo-footer', 220, 165, true );
 
 }
 add_action( 'after_setup_theme', 'jilanikpay_setup' );
@@ -118,6 +118,8 @@ function jilanikpay_init() {
 	// Navigation Menu
 	add_theme_support( 'menus' );
 	register_nav_menu( 'primary', 'Primary Navigation Menu' );
+	// Post Type Support
+	add_post_type_support( 'attachment', 'page-attributes' );
 }
 add_action( 'init', 'jilanikpay_init' );
 
@@ -125,7 +127,7 @@ add_action( 'init', 'jilanikpay_init' );
  * Admin Theme Options Menu
  */
 function jilanikpay_admin_menu() {
-    add_theme_page( 'Jila Nikpay Theme Options', 'Theme Options', 'edit_theme_options', 'jilanikpay-theme-options', 'jilanikpay_theme_options' );
+   add_theme_page( 'Jila Nikpay Theme Options', 'Theme Options', 'edit_theme_options', 'jilanikpay-theme-options', 'jilanikpay_theme_options' );
 }
 add_action( 'admin_menu', 'jilanikpay_admin_menu' );
 
