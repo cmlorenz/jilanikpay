@@ -103,6 +103,10 @@ body .img-link:hover img {
 	margin: 0 auto;
 	width: 780px;
 }
+#frontpage-content p {
+	font-size: 14px;
+	text-align: center;
+}
 #frontpage-content h2 {
 	font-family: 'Marcellus SC', sans-serif;
 	font-weight: 400;

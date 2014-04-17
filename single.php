@@ -13,7 +13,6 @@ get_header(); ?>
 			twentyfourteen_post_thumbnail(); ?>
 			<h3><?php echo get_the_date(); ?></h3>
 			<h2><?php the_title(); ?></h2>
-			<h4>By <?php the_author(); ?></h4>
 			<?php the_content(); ?>
 			<h5><?php the_tags(); ?></h5><?php
 			twentyfourteen_post_nav();
