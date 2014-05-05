@@ -104,8 +104,11 @@ body .img-link:hover img {
 	width: 780px;
 }
 #frontpage-content p {
+	color: #E0C7BC;
 	font-size: 14px;
-	text-align: center;
+	left: 85px;
+	position: absolute;
+	top: 120px;
 }
 #frontpage-content h2 {
 	font-family: 'Marcellus SC', sans-serif;
