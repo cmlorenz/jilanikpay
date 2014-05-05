@@ -45,14 +45,14 @@ body .img-link:hover img {
 .full-width .site-content img.size-large.alignright,
 .full-width .site-content img.size-medium.alignright,
 .full-width .site-content .wp-caption.alignright {
-   margin-right: -50px;
+   margin-right: 0;
 }
 .full-width .site-content blockquote.alignleft,
 .full-width .site-content img.size-full.alignleft,
 .full-width .site-content img.size-large.alignleft,
 .full-width .site-content img.size-medium.alignleft,
 .full-width .site-content .wp-caption.alignleft {
-   margin-left: -50px;
+   margin-left: 0;
 }
 #masthead {
 	background-color: transparent;
